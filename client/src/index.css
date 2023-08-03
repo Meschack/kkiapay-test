@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+* {
+  font-family: 'Outfit', sans-serif;
+  font-size: calc(1rem + 0.3vw);
+  color: white !important;
+}
+
+.page {
+  height: 100vh !important;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+}
+
+body,
+.card {
+  background-color: rgb(28, 30, 47);
+}
+
+.form-input {
+  border: 2px solid white;
+  background-color: transparent;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.recap-list {
+  border: 1px solid;
+  padding: 0 !important;
+}
+
+.recap-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
