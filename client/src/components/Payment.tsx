@@ -15,7 +15,7 @@ export const Payment = () => {
     openKkiapayWidget({
       api_key: import.meta.env.VITE_KKIAPAY_SECRET,
       sandbox: true,
-      theme: '#000000',
+      theme: '#0d6efd',
       phone: '97000000',
       amount: datas.quantity * 10,
       email: datas.email,
@@ -53,7 +53,13 @@ export const Payment = () => {
           <li>
             <strong>Email</strong>
             <span>
-              <a href={`mailto:${datas.email}`}>{datas.email}</a>
+              <a
+                href={`mailto:${datas.email}`}
+                className='mail-link'
+                target='_blank'
+              >
+                {datas.email}
+              </a>
             </span>
           </li>
           <li>
