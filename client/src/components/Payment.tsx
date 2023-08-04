@@ -24,7 +24,8 @@ export const Payment = () => {
       sandbox: true,
       theme: '#0d6efd',
       phone: '97000000',
-      amount: datas.quantity * 10,
+      amount:
+        datas.quantity * Number(import.meta.env.VITE_PRODUCT_UNITARY_PRICE),
       email: datas.email,
       firstname: datas.firstname,
       lastname: datas.lastname,

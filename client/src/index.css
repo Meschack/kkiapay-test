@@ -41,9 +41,15 @@ body {
 
 .recap-list li {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
+  gap: 1rem;
   padding: 0.5rem 0;
+}
+
+.recap-list li span {
+  word-break: break-all;
+  text-align: right;
 }
 
 .mail-link {
