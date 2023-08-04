@@ -24,8 +24,15 @@ body {
   background-color: transparent;
   display: block;
   padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
   border-radius: 5px;
   width: 100%;
+  transition: outline 0.3s ease;
+}
+
+.form-input:focus {
+  outline: 3px solid #0d6dfd91;
+  border: none;
 }
 
 .recap-list {
@@ -40,11 +47,16 @@ body {
 }
 
 .mail-link {
-  padding-bottom: 0.2rem;
   color: #0d6efd !important;
+  border: none !important;
+}
+
+.underline {
+  padding-bottom: 0.1rem;
   text-decoration: none;
+  border-bottom: 1px solid;
 }
 
 .mail-link:hover {
-  border-bottom: 1px solid #0d6efd;
+  border-bottom: 1px solid #0d6efd !important;
 }

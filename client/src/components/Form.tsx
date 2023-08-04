@@ -30,7 +30,8 @@ export const Form = () => {
 
   return (
     <PageWrapper>
-      <form method='post' onSubmit={onSubmit}>
+      <h1 className='text-center'>Kkiapay Test</h1>
+      <form method='post' onSubmit={onSubmit} className='mt-5'>
         <div className='row'>
           <div className='col-12 col-md-6 mb-3'>
             <label htmlFor='lastname' className='label'>

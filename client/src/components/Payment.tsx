@@ -4,12 +4,19 @@ import {
   removeKkiapayListener,
 } from 'kkiapay'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { PageWrapper } from '../layout/PageWrapper.tsx'
 import { useFormDatas } from '../hooks/useFormDatas.tsx'
 
+type PaymentStatus = {
+  status: string
+  message: string
+}
+
 export const Payment = () => {
   const { datas } = useFormDatas()
+
+  const [paymentStatus, setPaymentStatus] = useState<PaymentStatus | null>(null)
 
   function open() {
     openKkiapayWidget({
@@ -20,12 +27,17 @@ export const Payment = () => {
       amount: datas.quantity * 10,
       email: datas.email,
       firstname: datas.firstname,
-      lastname: datas.firstname,
+      lastname: datas.lastname,
     })
   }
 
   function successHandler(response: JSON) {
     console.log(response)
+
+    setPaymentStatus({
+      status: 'success',
+      message: 'Payé',
+    })
   }
 
   useEffect(() => {
@@ -43,19 +55,19 @@ export const Payment = () => {
 
         <ul className='d-flex flex-column gap-2 recap-list'>
           <li>
-            <strong>Prénom</strong>
+            <strong className='underline'>Prénom</strong>
             <span>{datas.firstname}</span>
           </li>
           <li>
-            <strong>Nom</strong>
+            <strong className='underline'>Nom</strong>
             <span>{datas.lastname}</span>
           </li>
           <li>
-            <strong>Email</strong>
+            <strong className='underline'>Email</strong>
             <span>
               <a
                 href={`mailto:${datas.email}`}
-                className='mail-link'
+                className='mail-link underline'
                 target='_blank'
               >
                 {datas.email}
@@ -63,13 +75,18 @@ export const Payment = () => {
             </span>
           </li>
           <li>
-            <strong>Quantité</strong>
+            <strong className='underline'>Quantité</strong>
             <span>{datas.quantity}</span>
           </li>
         </ul>
 
-        <button className='pay btn btn-primary' onClick={open}>
-          Passer au paiement
+        <button
+          type='button'
+          className={`pay btn btn-${paymentStatus?.status ?? 'primary'}`}
+          disabled={Boolean(paymentStatus)}
+          onClick={open}
+        >
+          {paymentStatus ? 'Payé' : 'Passer au paiement'}
         </button>
       </div>
     </PageWrapper>
